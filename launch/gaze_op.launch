@@ -1,0 +1,11 @@
+<launch> 
+    <!-- Start Nodes -->
+    <include file="$(find kortex_driver)/launch/kortex_driver.launch">
+      <arg name="password" value="admin" />
+      <arg name="arm" value="gen3_lite" />
+      <arg name="start_rviz" value="false" />
+    </include>
+    <node    name="face_analyser"         pkg="gaze_op"    type="camera.py"/>
+    <node    name="movement_processor"    pkg="gaze_op"    type="movement.py"    output="screen"/>
+    <node    name="move_arm"              pkg="gaze_op"    type="move_arm.py"    output="screen"/>
+</launch>
